@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import PlaceList from '../../components/PlaceList/PlaceList.js';
 import { useHttpClient } from '../../../shared/hooks/http-hook';
 import ErrorModal from '../../../shared/components/UIElements/ErrorModal/ErrorModal';
 import LoadingSpinner from '../../../shared/components/UIElements/LoadingSpinner/LoadingSpinner';
+import { AuthContext } from '../../../shared/context/auth-context';
 
 const UserPlaces = () => {
+  const auth = useContext(AuthContext);
   const [loadedPlaces, setLoadedPlaces] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const userId = useParams().userId;
+
+  console.log('auth', auth);
 
   useEffect(() => {
     const fetchPlaces = async () => {

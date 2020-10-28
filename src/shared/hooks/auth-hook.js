@@ -8,6 +8,9 @@ export const useAuth = () => {
   const [userId, setUserId] = useState(false);
 
   const login = useCallback((uid, token, expirationDate) => {
+    console.log('uid', uid);
+    console.log('token', token);
+    console.log('expirationDate', expirationDate);
     setToken(token);
     setUserId(uid);
     const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60); // 1 Hour

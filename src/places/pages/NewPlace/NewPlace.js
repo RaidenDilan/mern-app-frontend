@@ -38,7 +38,7 @@ const NewPlace = () => {
 
   const history = useHistory();
 
-  const placeSubmitHandler = async event => {
+  const placeSubmitHandler = async (event) => {
     event.preventDefault();
     try {
       const formData = new FormData();
